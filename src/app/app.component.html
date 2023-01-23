@@ -1,0 +1,63 @@
+<div  class="head"><br><label >User Input : <input type="number" #id> <button (click)="assign(id.value)">Search</button> </label> </div>
+<div class="container">
+  <div class="smallcontainer">
+    <div class="button">
+    <button (click)="keyvalue('posts',1)">Post</button>
+    <button (click)="keyvalue('comments',2)">Comments</button>
+    <button (click)="keyvalue('albums',3)">Albums</button>
+    <button (click)="keyvalue('photos',4)">Photos</button>
+    <button (click)="keyvalue('todos',5)">Todos</button>
+    </div>
+  </div>
+
+
+   <div class="smallcontainer2">
+
+    <div class="datum" *ngFor="let h of httpdata">
+      <label class="lab">USER ID: {{h.id}}</label>
+      <label class="lab">ID : {{h.userId}}</label>
+      <label class="lab">TITLE : {{h.title}}</label>
+      <label class="lab">BODY : {{h.body}}</label> 
+    </div>
+
+<div class="datum" *ngIf="(val=='1' && bool)">
+  <label class="lab">userId : {{httpdata[c].userId}} </label><br>
+  <label class="lab">id     : {{httpdata[c].id}} </label><br>
+  <label class="lab">title  : {{httpdata[c].title}} </label><br>
+  <label class="lab">body   : {{httpdata[c].body}} </label><br>
+</div>
+
+<div class="datum" *ngIf="(val=='2' && bool)">
+ <label class="lab">postId : {{httpdata[c].postId}} </label><br>
+ <label class="lab">id     : {{httpdata[c].id}} </label><br>
+ <label class="lab">name   : {{httpdata[c].name}} </label><br>
+ <label class="lab">email  : {{httpdata[c].email}} </label><br>
+ <label class="lab">body   : {{httpdata[c].body}} </label><br>
+</div>
+
+<div class="datum" *ngIf="val=='3' && bool">
+  <label class="lab">userId : {{httpdata[c].userId}} </label><br>
+  <label class="lab">id     : {{httpdata[c].id}} </label><br>
+  <label class="lab">title  : {{httpdata[c].title}} </label><br>
+</div>
+
+<div class="datum" *ngIf="val=='4' && bool">
+  <label><img [src]=httpdata[c].thumbnailUrl></label>
+  <label class="lab">albumId : {{httpdata[c].albumId}} </label><br>
+  <label class="lab">id     : {{httpdata[c].id}} </label><br>
+  <label class="lab">title  : {{httpdata[c].title}} </label><br>
+  <label class="lab">url  :{{httpdata[c].url}} </label><br>
+</div>
+
+<div class="datum" *ngIf="val=='5' && bool">
+  <label class="lab">userId : {{httpdata[c].userId}} </label><br>
+  <label class="lab">id     : {{httpdata[c].id}} </label><br>
+  <label class="lab">title  : {{httpdata[c].title}} </label><br>
+  <label class="lab">completed  : {{httpdata[c].completed}} </label><br>
+</div>
+  
+</div>
+
+</div>
+
+<router-outlet></router-outlet>
